@@ -80,22 +80,9 @@ function createWindow() {
       ]
     },
     {
-      label: 'Edit',
-      submenu: [
-        { label: 'Undo', role: 'undo' },
-        { label: 'Redo', role: 'redo' },
-        { type: 'separator' },
-        { label: 'Cut', role: 'cut' },
-        { label: 'Copy', role: 'copy' },
-        { label: 'Paste', role: 'paste' },
-        { label: 'Select All', role: 'selectAll' }
-      ]
-    },
-    {
       label: 'View',
       submenu: [
         { label: 'Toggle Fullscreen', role: 'togglefullscreen' },
-        { label: 'Toggle Developer Tools', role: 'toggleDevTools' }
       ]
     },
     {
@@ -107,7 +94,7 @@ function createWindow() {
         },
         {
           label: 'Visit Website',
-          click: () => shell.openExternal('https://dotlabs.com')
+          click: () => shell.openExternal('https://dotlabs.online')
         }
       ]
     }
@@ -125,5 +112,9 @@ ipcMain.on('window-maximize', () => {
   }
 });
 ipcMain.on('window-close', () => mainWindow.close());
+
+ipcMain.handle('get-app-version', () => {
+  return app.getVersion();
+});
 
 app.whenReady().then(createWindow);

@@ -1,8 +1,15 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld('electron', {
-  ipcRenderer: {
-    send: (channel, ...args) => ipcRenderer.send(channel, ...args),
-    on: (channel, listener) => ipcRenderer.on(channel, listener)
+contextBridge.exposeInMainWorld('electronAPI', {
+  getAppVersion: () => ipcRenderer.invoke('get-app-version')
+});
+
+window.addEventListener('DOMContentLoaded', async () => {
+  if (window.electronAPI && window.electronAPI.getAppVersion) {
+    const versionElement = document.getElementById('app-version');
+    if (versionElement) {
+      const version = await window.electronAPI.getAppVersion();
+      versionElement.textContent = `Version ${version}`;
+    }
   }
-}); 
+});
