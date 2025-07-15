@@ -71,4 +71,4 @@ npm run build
    ```
 
 ## 📦 Download Latest
-➡ [Releases Page](https://github.com/your-github-username/your-repo-name/releases)
+➡ [Releases Page](https://github.com/umer-jahangier/shares-calculator/releases)
