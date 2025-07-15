@@ -20,7 +20,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 500,
     height: 600,
-    frame: false, // Custom window controls
+    frame: true, // Change this to true
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -57,15 +57,7 @@ function createWindow() {
     mainWindow.webContents.send('update-progress', progressObj);
   });
   autoUpdater.on('update-downloaded', (info) => {
-    dialog.showMessageBox(mainWindow, {
-      type: 'info',
-      title: 'Update Ready',
-      message: 'A new version has been downloaded. Restart the app to apply the update?',
-      buttons: ['Restart', 'Later']
-    }).then(result => {
-      if (result.response === 0) autoUpdater.quitAndInstall();
-    });
-    mainWindow.webContents.send('update-message', 'Update downloaded. Ready to install.');
+    autoUpdater.quitAndInstall();
   });
   // --- End Enhanced Auto-Update Logic ---
 

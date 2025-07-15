@@ -109,4 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
     element.classList.add('fade-in');
     if (isError) element.classList.add('error');
   }
+
+  if (window.electronAPI) {
+    window.electronAPI.onUpdateMessage((msg) => {
+      showUpdateStatus(msg);
+    });
+    window.electronAPI.onUpdateProgress((progress) => {
+      showUpdateStatus(`Update Downloaded: ${Math.round(progress.percent)}%`);
+    });
+  }
 });
