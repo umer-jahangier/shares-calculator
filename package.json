@@ -1,9 +1,9 @@
 {
-  "name": "share-calculator",
+  "name": "shares-calculator",
   "version": "2.3.1",
   "main": "main.js",
   "author": "DotLabs",
-  "description": "Simple share calculator with CI/CD and auto-updates",
+  "description": "Simple shares calculator with CI/CD and auto-updates",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder",
@@ -18,7 +18,8 @@
       {
         "provider": "github",
         "owner": "umer-jahangier",
-        "repo": "shares-calculator"
+        "repo": "shares-calculator",
+        "releaseType": "release"
       }
     ],
     "win": {
