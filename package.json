@@ -1,0 +1,54 @@
+{
+  "name": "share-calculator",
+  "version": "2.1.0",
+  "main": "main.js",
+  "author": "DotLabs",
+  "description": "Simple share calculator with CI/CD and auto-updates",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "publish": "electron-builder --publish always",
+    "server": "node server.js"
+  },
+  "build": {
+    "appId": "com.dotlabs.sharecalculator",
+    "productName": "DotLabs Share Calculator",
+    "copyright": "Copyright © 2024 DotLabs",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "umer-jahangier",
+        "repo": "shares-calculator"
+      }
+    ],
+    "win": {
+      "icon": "logo.ico",
+      "target": {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "include": "installer.nsh",
+      "license": "license.txt",
+      "installerIcon": "logo.ico",
+      "uninstallerIcon": "logo.ico",
+      "installerHeaderIcon": "logo.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "DotLabs Share Calculator"
+    }
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "electron-updater": "^5.3.0",
+    "express": "^4.21.2",
+    "helmet": "^7.0.0"
+  },
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.6.0"
+  }
+}

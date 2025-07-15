@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Share Calculator 2050</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-animation"></div>
+  <div class="window-controls">
+    <button class="window-btn" id="min-btn" title="Minimize">&#x2013;</button>
+    <button class="window-btn" id="max-btn" title="Maximize">&#x25A1;</button>
+    <button class="window-btn close" id="close-btn" title="Close">&#x2715;</button>
+  </div>
+  <div class="container">
+    <header>
+      <img src="logo.png" alt="DotLabs Logo" class="brand-logo" />
+      <h1 class="brand-title">DotLabs Share Calculator</h1>
+      <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+    </header>
+    <section class="card">
+      <h2>Direct Split</h2>
+      <input id="totalAmount" type="number" placeholder="Enter total amount">
+      <button id="calcSplitBtn">Calculate</button>
+      <div id="output1" class="output"></div>
+    </section>
+    <section class="card">
+      <h2>Desired Share</h2>
+      <input id="desiredShare" type="number" placeholder="How much do you want?">
+      <button id="reverseCalcBtn">Reverse Calculate</button>
+      <div id="output2" class="output"></div>
+    </section>
+    <footer>
+      <p>Made for the future. <span class="icon">🚀</span></p>
+    </footer>
+    <div id="about-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" id="close-about">&times;</span>
+        <img src="logo.png" alt="DotLabs Logo" class="modal-logo" />
+        <h2>About DotLabs Share Calculator</h2>
+        <p>Version 2.0.0</p>
+        <p>&copy; 2024 DotLabs</p>
+        <p>A modern, secure share calculator built by DotLabs.</p>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
