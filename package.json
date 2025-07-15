@@ -1,6 +1,6 @@
 {
   "name": "share-calculator",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "main": "main.js",
   "author": "DotLabs",
   "description": "Simple share calculator with CI/CD and auto-updates",
