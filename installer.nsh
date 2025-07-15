@@ -1,5 +1,3 @@
-!include "MUI2.nsh"
-
 !macro customInit
   ; Require admin privileges
   UserInfo::GetAccountType
@@ -20,5 +18,3 @@
   RMDir /r "$INSTDIR\\config"
 !macroend
 
-; Show license agreement (electron-builder will include license.txt if specified in package.json)
-  !insertmacro MUI_PAGE_LICENSE "license.txt"
